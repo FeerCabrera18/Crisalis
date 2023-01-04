@@ -52,6 +52,7 @@ public class Cliente {
     }
     public ClienteDTO toDTO(){
         return ClienteDTO.builder()
+                .id(this.id)
                 .nombre(this.nombre)
                 .apellido(this.apellido)
                 .DNI(this.DNI)

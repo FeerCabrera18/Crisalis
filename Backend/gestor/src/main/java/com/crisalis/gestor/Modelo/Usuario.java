@@ -34,6 +34,7 @@ public class Usuario {
     public UsuarioDTO toDTO() {
         return
                 UsuarioDTO.builder()
+                        .id(this.Id)
                         .nombre(this.nombre)
                         .apellido(this.apellido)
                         .username(this.username)

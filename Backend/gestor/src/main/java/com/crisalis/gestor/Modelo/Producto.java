@@ -31,6 +31,7 @@ public class Producto {
     }
     public ProductoDTO toDTO(){
         return ProductoDTO.builder()
+                .id(this.id)
                 .producto(this.producto)
                 .precio(this.precio)
                 .stock(this.stock)

@@ -25,3 +25,10 @@ function login() {
 }
 loginBtn.addEventListener("click", login)
 
+const response = fetch(link, {
+    method: 'GET',
+    body: JSON.stringify(data),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})

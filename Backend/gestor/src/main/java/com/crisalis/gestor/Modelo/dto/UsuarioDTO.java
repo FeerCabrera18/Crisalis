@@ -8,7 +8,8 @@ import javax.persistence.Column;
 @Data
 @Builder
 public class UsuarioDTO {
-
+    @JsonProperty("ID")
+    private Integer id;
     @JsonProperty("Nombre")
     private String nombre;
     @JsonProperty("Apellido")
