@@ -5,10 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Repository
 public interface ClienteRepositorio extends JpaRepository<Cliente, Integer> {
-    //@Query("select c from Cliente c where c.identificacion = ?1")
-    Optional<Cliente> findById (Integer id);
+    Optional<Cliente> findById(Integer integer);
+    void deleteById(int id);
 }

@@ -45,6 +45,9 @@ public class UsuarioServicio {
                 .map(Usuario::toDTO)
                 .collect(Collectors.toList());
     }
+    public void borrarUsuario(int id){
+        this.usuarioRepositorio.deleteById(id);
+    }
     private boolean comprobarDTO(UsuarioDTO usuarioDTO, boolean InicioSesion){
         if(!InicioSesion){
             if(StringUtils.isEmpty (usuarioDTO.getNombre())){

@@ -15,14 +15,12 @@ public class ProductoServicio {
     public ProductoServicio(ProductoRepositorio productoRepositorio){
         this.productoRepositorio = productoRepositorio;
     }
-
     public Producto crearProducto(ProductoDTO productoDTO){
         return this.productoRepositorio.save(new Producto(productoDTO));
     }
     public void borrarProducto(int id){
         this.productoRepositorio.deleteById(id);
     }
-
     public List<ProductoDTO> getlistarProductosEnBD(){
         return this.productoRepositorio
                 .findAll()

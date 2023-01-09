@@ -6,17 +6,18 @@ const mostrar = (clientes) => {
     clientes.forEach(cliente => {
         resultados += `<tr>
                                 <td>${cliente.ID}</td>
+                                <td>${cliente.Empresa}</td>
+                                <td>${cliente.razon_social}</td>
+                                <td>${cliente.fecha_inicio}</td>
+                                <td>${cliente.CUIT}</td>
                                 <td>${cliente.Nombre}</td>
                                 <td>${cliente.Apellido}</td>
                                 <td>${cliente.DNI}</td>
                                 <td>${cliente.Direccion}</td>
                                 <td>${cliente.Email}</td>
                                 <td>${cliente.Telefono}</td>
-                                <td>${cliente.Empresa}</td>
-                                <td>${cliente.CUIT}</td>
-                                <td>${cliente.razon_social}</td>
-                                <td>${cliente.fecha_inicio}</td>
-                                <td class="text-center"><a>Editar</a><a>Borrar</a></td>
+                                <td class="text-center"><a>Editar</a>
+                                <a>Borrar</a></td>
                             </tr>`    
     })
     contenedor.innerHTML = resultados  

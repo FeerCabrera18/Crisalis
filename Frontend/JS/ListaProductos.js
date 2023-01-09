@@ -9,7 +9,8 @@ const mostrar = (Productos) => {
                                 <td>${producto.producto}</td>
                                 <td>${producto.precio}</td>
                                 <td>${producto.stock}</td>
-                                <td class="text-center"><a>Editar</a><a>Borrar</a></td>
+                                <td class="text-center"><a class="btnEditar">Editar</a>
+                                <a class="btnBorrar">Borrar</a></td>
                             </tr>`    
     })
     contenedor.innerHTML = resultados  

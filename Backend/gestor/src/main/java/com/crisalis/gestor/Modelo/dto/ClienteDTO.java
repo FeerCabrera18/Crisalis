@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Builder
 public class ClienteDTO {
     @JsonProperty("ID")
-    private Integer id;
+    private int id;
     @JsonProperty("Nombre")
     private String nombre;
     @JsonProperty("Apellido")
