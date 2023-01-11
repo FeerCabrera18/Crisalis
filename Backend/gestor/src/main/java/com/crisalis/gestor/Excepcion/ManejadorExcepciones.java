@@ -3,7 +3,6 @@ package com.crisalis.gestor.Excepcion;
 import com.crisalis.gestor.Excepcion.personalizado.CredencialInvalida;
 import com.crisalis.gestor.Excepcion.personalizado.ElementoVacio;
 import com.crisalis.gestor.Excepcion.personalizado.ErrorCrearUsuario;
-import com.crisalis.gestor.Excepcion.personalizado.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -26,8 +25,7 @@ public class ManejadorExcepciones {
     }
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler({
-            CredencialInvalida.class,
-            ResourceNotFoundException.class
+            CredencialInvalida.class
     })
     @ResponseBody
     public void unauthorized() {
