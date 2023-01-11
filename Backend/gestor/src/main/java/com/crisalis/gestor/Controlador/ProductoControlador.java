@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("bienes")
+@RequestMapping("producto")
 public class ProductoControlador {
     private ProductoServicio productoServicio;
     @PostMapping(value = "crearProducto")
