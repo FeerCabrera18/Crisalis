@@ -8,7 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface UsuarioRepositorio extends JpaRepository<Usuario, Integer> {
-
    Optional<Usuario> findByUsernameAndPassword (String username, String password);
    void deleteById(int id);
 }

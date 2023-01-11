@@ -1,11 +1,11 @@
-const url = 'http://localhost:8080/Bienes/listarProductos'
+const url = 'http://localhost:8080/bienes/listaProductos'
 const contenedor = document.querySelector('tbody')
 let resultados = ''
 
 const mostrar = (Productos) => {
     Productos.forEach(producto=> {
         resultados += `<tr>
-                                <td>${producto.ID}</td>
+                                <td>${producto.id}</td>
                                 <td>${producto.producto}</td>
                                 <td>${producto.precio}</td>
                                 <td>${producto.stock}</td>

@@ -2,7 +2,7 @@ const form  = document.getElementById('registroProducto');
 const registroBtn = document.querySelector("#guardar");
 
 function registro(){ 
-    const link = 'http://localhost:8080/Bienes/crearProducto'
+    const link = 'http://localhost:8080/bienes/crearProducto'
     const data = {
         producto: form.elements['producto'].value,
         precio: form.elements['precio'].value,

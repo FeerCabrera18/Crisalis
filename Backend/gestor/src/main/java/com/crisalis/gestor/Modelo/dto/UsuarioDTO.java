@@ -18,6 +18,4 @@ public class UsuarioDTO {
     private String username;
     @JsonProperty("Contraseña")
     private String password;
-
-
 }

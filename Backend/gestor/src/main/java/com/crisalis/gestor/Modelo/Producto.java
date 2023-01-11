@@ -1,40 +1,26 @@
 package com.crisalis.gestor.Modelo;
 
-import com.crisalis.gestor.Modelo.dto.ProductoDTO;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
-@Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Bienes")
+@Entity
+@Table(name = "bienes")
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    private Long id;
     @Column(name = "producto")
     private String producto;
     @Column(name = "precio")
     private String precio;
     @Column(name = "stock")
-    private Integer stock;
-
-    public Producto(ProductoDTO productoDTO){
-        this.producto = productoDTO.getProducto();
-        this.precio = productoDTO.getPrecio();
-        this.stock = productoDTO.getStock();
-    }
-    public ProductoDTO toDTO(){
-        return ProductoDTO.builder()
-                .id(this.id)
-                .producto(this.producto)
-                .precio(this.precio)
-                .stock(this.stock)
-                .build();
-    }
+    private String stock;
 }

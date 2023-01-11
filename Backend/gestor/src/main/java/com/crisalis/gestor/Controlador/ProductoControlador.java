@@ -1,35 +1,44 @@
 package com.crisalis.gestor.Controlador;
 
 import com.crisalis.gestor.Modelo.Producto;
-import com.crisalis.gestor.Modelo.dto.ClienteDTO;
-import com.crisalis.gestor.Modelo.dto.ProductoDTO;
 import com.crisalis.gestor.Servicio.ProductoServicio;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("Bienes")
+@AllArgsConstructor
+@RequestMapping("bienes")
 public class ProductoControlador {
-    private final ProductoServicio productoServicio;
-    public ProductoControlador(ProductoServicio productoServicio) {
-        this.productoServicio = productoServicio;
+    private ProductoServicio productoServicio;
+    @PostMapping(value = "crearProducto")
+    public ResponseEntity<Producto> crearProducto(@RequestBody Producto producto){
+        Producto crearProducto = productoServicio.crearProducto(producto);
+        return new ResponseEntity<>(crearProducto, HttpStatus.CREATED);
     }
-    @PostMapping(value = "crearProducto", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Producto crearProducto(@RequestBody ProductoDTO productoDTO){
-        return this.productoServicio.crearProducto(productoDTO);
+    @GetMapping(value = "obtenerProductoById/{id}")
+    public ResponseEntity<Producto> obtenerProductoById(@PathVariable("id") Long id){
+        Producto producto = productoServicio.obtenerProductoById(id);
+        return new ResponseEntity<>(producto, HttpStatus.OK);
     }
-    @DeleteMapping("borrarProducto/{id}")
-    public ResponseEntity<ProductoDTO> borrarProducto(@PathVariable("id") int id) {
+    @GetMapping(value = "listaProductos")
+    public ResponseEntity<List<Producto>> obtenerLista(){
+        List<Producto> productos = productoServicio.obtenerLista();
+        return new ResponseEntity<>(productos, HttpStatus.OK);
+    }
+    @PutMapping(value = "actualizarProducto/{id}")
+    public ResponseEntity<Producto> actualizarProducto(@PathVariable("id") Long id,
+                                                       @RequestBody Producto producto){
+        producto.setId(id);
+        Producto actualizarProducto = productoServicio.actualizarProducto(producto);
+        return new ResponseEntity<>(actualizarProducto, HttpStatus.OK);
+    }
+    @DeleteMapping(value = "borrarProducto/{id}")
+    public ResponseEntity<String> borrarProducto(@PathVariable("id") Long id){
         productoServicio.borrarProducto(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-    @GetMapping(value = "listarProductos", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ProductoDTO> listarProductos(){
-        return this.productoServicio.getlistarProductosEnBD();
+        return new ResponseEntity<>("Producto eliminado!", HttpStatus.OK);
     }
 }
-
